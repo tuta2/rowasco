@@ -108,6 +108,9 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.7.2)
     irb (1.13.1)
       rdoc (>= 4.0.0)
@@ -217,6 +220,9 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -261,12 +267,14 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
+  inline_svg
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.3)
   rspec-rails
+  simple_form (~> 5.1.0)
   sprockets-rails
   stimulus-rails
   turbo-rails
