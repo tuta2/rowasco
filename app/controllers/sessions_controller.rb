@@ -42,15 +42,13 @@ class SessionsController < ApplicationController
         }
       end
     rescue StandardError
-      respond_to do |format|
-        format.html {render '/login', status: :unprocessable_entity}
-      end
+      redirect_to '/login', notice: 'App Error'
     end
   end
 
   def destroy
     session.delete(:user_id)
-    redirect_to '/', notice: 'Logged out!'
+    redirect_to '/login', notice: 'Logged out!'
   end
 
   private
