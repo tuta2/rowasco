@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized!, only: [:new, :create, :create_auth_user]
+  skip_before_action :authorized!, only: [:index, :new, :create, :create_auth_user]
+
+  def index; end
 
   def new; end
 
@@ -14,7 +16,7 @@ class SessionsController < ApplicationController
           redirect_to '/dashboard', notice: "Welcome Back #{current_user.first_name} #{current_user.last_name}" 
         }
       else
-        format.html { redirect_to '/login', notice: "Wrong Email & Password Confirmation. Plz Try Again!" }
+        format.html { redirect_to '/user_login', notice: "Wrong Email & Password Confirmation. Plz Try Again!" }
       end
     end
   end
