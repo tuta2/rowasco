@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rowasco</title>
+    <title>Rowasco - Dashboard</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,10 +20,10 @@
   </head> 
 
   <body class="max-w-full overflow-x-hidden font-['ubuntu'] bg-gray-200">
-    <%= render "shared/header" %>
+    <%= render "shared/navbar" %>
     <main class="min-h-screen">
       <%= yield %>
     </main>
-    <%= render "shared/footer" %>
+    <%= render "shared/user_footer" %>
   </body>
 </html>
