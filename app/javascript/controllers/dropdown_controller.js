@@ -1,7 +1,24 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="dropdown"
 export default class extends Controller {
+  static targets = ["panel"];
+
   connect() {
+    document.addEventListener("click", this.handleClickOutside.bind(this));
+  }
+
+  disconnect() {
+    document.removeEventListener("click", this.handleClickOutside.bind(this));
+  }
+
+  toggle() {
+    this.panelTarget.classList.toggle("hidden");
+  }
+
+  handleClickOutside(event) {
+    if (!this.element.contains(event.target)) {
+      this.panelTarget.classList.add("hidden");
+    }
   }
 }
+
