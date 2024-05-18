@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy"
   get 'signup', to: 'users#new'
   resources :users, only: [:create, :update, :destroy]
+  get 'dashboard', to: 'dashboard#index'
 
   root "home#index"
 end
