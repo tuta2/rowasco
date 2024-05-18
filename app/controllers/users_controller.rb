@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorized!, except: [:create]
-  load_and_authorize_resource except: [:create]
+  before_action :authorized!, except: [:create, :new]
+  load_and_authorize_resource except: [:create, :new]
 
   def index
     @user = current_user
