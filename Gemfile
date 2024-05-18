@@ -14,7 +14,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # gem "redis", ">= 4.0.1"
 # gem "kredis"
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
@@ -35,3 +35,9 @@ end
 
 gem "simple_form", "~> 5.1.0"
 gem 'inline_svg'
+gem "cancancan"
+
+# Auth
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-google-oauth2'
