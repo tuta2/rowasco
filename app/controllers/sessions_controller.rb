@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
           redirect_to '/dashboard', notice: "Welcome Back #{current_user.first_name} #{current_user.last_name}" 
         }
       else
-        format.html {render '/login', status: :unprocessable_entity}
+        format.html { redirect_to '/login', notice: "Wrong Email & Password Confirmation. Plz Try Again!" }
       end
     end
   end

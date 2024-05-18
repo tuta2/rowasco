@@ -26,7 +26,7 @@ class UsersController < ApplicationController
           redirect_to '/dashboard', notice: "Welcome #{current_user.first_name} #{current_user.last_name}" 
         }
       else
-        format.html {render '/signup', status: :unprocessable_entity}
+        format.html {render 'users/new', status: :unprocessable_entity}
       end
     end
   end

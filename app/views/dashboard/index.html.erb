@@ -30,12 +30,9 @@
 <div class="w-full lg:ps-64">
   <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
     <div class="w-1/2 mx-auto mt-2 mb-4 text-center">
-      <% flash.each do |type, msg| %>
-        <%= content_tag :div, msg, class: build_alert_classes(type) %>
-      <% end %>
     </div>
   </div>
 </div>
 <!-- End Content -->
 <!-- ========== END MAIN CONTENT ========== -->
-
+<%= render partial: "shared/notification", locals: { message: flash[:notice] } %>
