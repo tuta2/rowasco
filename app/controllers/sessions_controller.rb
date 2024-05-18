@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(session_params[:password])
         log_in(@user)
         format.html { 
-          redirect_to '/dashboard', notice: "Welcome Back #{current_user.first_name} #{current_user.last_name}" 
+          redirect_to '/dashboard', notice: "Welcome Back #{current_user.first_name} #{current_user.last_name}"
         }
       else
         format.html { redirect_to '/user_login', notice: "Wrong Email & Password Confirmation. Plz Try Again!" }
