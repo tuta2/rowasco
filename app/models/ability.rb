@@ -12,15 +12,23 @@ class Ability
       when "super_admin"
         can :create, User
         can :manage, [User]
+        can :manage, Order
+        can :manage, Service
       when "admin"
         can :create, User
         can :manage, User, id: user.id
+        can :manage, Order
+        can :manage, Service
       when "customer"
         cannot :create, User
-        cannot :read, User
+        can :read, User, id: user.id
+        can :read, Order
+        can :read, Service
       else
         cannot :create, User
         cannot :read, User
+        can :read, Order
+        can :read, Service
       end
     end
   end

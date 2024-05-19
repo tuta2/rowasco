@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_18_080548) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_18_212129) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.string "order_uniq_id"
+    t.decimal "total_amount", default: "0.0"
+    t.string "mode_of_payment"
+    t.string "phone_number"
+    t.string "account_number"
+    t.string "full_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "service_type"
+    t.string "service_quantity"
+    t.decimal "price"
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_services_on_order_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "password_digest"
@@ -33,4 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_18_080548) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders", "users"
+  add_foreign_key "services", "orders"
 end

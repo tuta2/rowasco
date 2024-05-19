@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :services
+  resources :orders
   get 'home/index'
   resources :sessions, only: [:create]
   get '/auth/:provider/callback', to: 'sessions#create_auth_user'
